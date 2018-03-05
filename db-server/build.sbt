@@ -20,6 +20,7 @@ libraryDependencies ++= {
   )
 }
 
+dockerBaseImage := "openjdk:jre-alpine"
 
-enablePlugins(UniversalPlugin)
-enablePlugins(DockerPlugin)
+enablePlugins(AshScriptPlugin)
+enablePlugins(JavaAppPackaging)
