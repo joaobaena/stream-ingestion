@@ -1,0 +1,33 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+  db-server:
+    image: db-server:0.1
+    ports:
+      - 9000:9000
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=example
+    networks:
+      - db-postgres-nw
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+    volumes:
+      - postgresVolume:/var/lib/postgresql/data
+    networks:
+      db-postgres-nw:
+        aliases:
+          - postgres
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+networks:
+  db-postgres-nw:
+volumes:
+  postgresVolume:
