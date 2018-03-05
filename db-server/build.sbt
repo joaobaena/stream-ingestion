@@ -4,6 +4,7 @@ version := "0.1"
 
 scalaVersion := "2.12.4"
 
+
 libraryDependencies ++= {
   val akkaV       = "2.5.9"
   val akkaHttpV   = "10.1.0-RC2"
@@ -18,3 +19,7 @@ libraryDependencies ++= {
     "org.scalatest"     %% "scalatest" % scalaTestV % "test"
   )
 }
+
+
+enablePlugins(UniversalPlugin)
+enablePlugins(DockerPlugin)
