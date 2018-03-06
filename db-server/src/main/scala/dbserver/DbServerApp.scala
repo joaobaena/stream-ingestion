@@ -1,7 +1,6 @@
 package dbserver
 
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
+import slick.jdbc.PostgresProfile.api._
 
 import akka.actor.ActorSystem
 import akka.event.{Logging, LoggingAdapter}
@@ -37,6 +36,7 @@ trait Service extends Protocols {
       pathPrefix("table_contents") {
         (post & entity(as[Table])) { tb =>
           complete {
+            val sqldb = Database.forConfig("dummy_db.postgres")
             DummyResponse(s"Going fine.... Table: ${tb.name}")
           }
         }
