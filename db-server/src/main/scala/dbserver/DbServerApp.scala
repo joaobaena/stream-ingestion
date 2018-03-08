@@ -34,7 +34,6 @@ trait Service extends Protocols {
       pathPrefix("table_contents") {
         (post & entity(as[Table])) { tb =>
           complete {
-            val sqldb = Database.forConfig("dummy_db.postgres")
             DummyResponse(s"Going fine.... Table: ${tb.name}")
           }
         }
