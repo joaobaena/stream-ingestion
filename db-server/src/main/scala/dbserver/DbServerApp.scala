@@ -1,8 +1,5 @@
 package dbserver
 
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-
 import akka.actor.ActorSystem
 import akka.event.{Logging, LoggingAdapter}
 import akka.http.scaladsl.Http
